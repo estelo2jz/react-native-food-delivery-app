@@ -1,7 +1,7 @@
 import { icons, images } from "./";
 
 const myProfile = {
-  name: "ByProgrammers",
+  name: "Estelo M Abellanosa",
   profile_image: images.profile,
   address: "No. 88, Jln Padungan, Kuching"
 }
