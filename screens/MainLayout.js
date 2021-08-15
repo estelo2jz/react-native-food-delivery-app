@@ -8,15 +8,15 @@ import {
   FlatList,
 } from 'react-native';
 
-import Animated, {useSharedValue, useAnimatedStyle, withTiming} from 'react-native-reanimated';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 // import LinearGradient from 'react-native-linear-gradient';
 import { LinearGradient } from 'expo-linear-gradient';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { setSelectedTab } from '../stores/tab/tabActions';
-import {Header} from '../components';
+import { Header } from '../components';
 
 import { Home, Search, CartTab, Favourite, Notification } from '../screens';
-import {COLORS, FONTS, SIZES, icons, constants, dummyData} from '../constants';
+import { COLORS, FONTS, SIZES, icons, constants, dummyData } from '../constants';
 
 const TabButton = ({ label, icon, isFocused, onPress }) => {
   return (
@@ -66,19 +66,19 @@ const TabButton = ({ label, icon, isFocused, onPress }) => {
   )
 }
 
-const MainLayout = ({drawerAnimationStyle, navigation, selectedTab, setSelectedTab}) => {
+const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelectedTab }) => {
 
   // Rreanimated Shared Value
-  const homeTabFlex = useSharedValue(1);
-  const homeTabColor = useSharedValue(COLORS.white);
-  const searchTabFlex = useSharedValue(1);
-  const searchTabColor = useSharedValue(COLORS.white);
-  const cartTabFlex = useSharedValue(1);
-  const cartTabColor = useSharedValue(COLORS.white);
-  const favouriteTabFlex = useSharedValue(1);
-  const favouriteTabColor = useSharedValue(COLORS.white);
-  const notificationTabFlex = useSharedValue(1);
-  const notificationTabColor = useSharedValue(COLORS.white);
+  const homeTabFlex = useSharedValue(1)
+  const homeTabColor = useSharedValue(COLORS.white)
+  const searchTabFlex = useSharedValue(1)
+  const searchTabColor = useSharedValue(COLORS.white)
+  const cartTabFlex = useSharedValue(1)
+  const cartTabColor = useSharedValue(COLORS.white)
+  const favouriteTabFlex = useSharedValue(1)
+  const favouriteTabColor = useSharedValue(COLORS.white)
+  const notificationTabFlex = useSharedValue(1)
+  const notificationTabColor = useSharedValue(COLORS.white)
 
   // Reanimated Animated Style
 
@@ -150,7 +150,7 @@ const MainLayout = ({drawerAnimationStyle, navigation, selectedTab, setSelectedT
       }}
     >
       {/* Header */}
-      <Header 
+      <Header
         containerStyle={{
           height: 50,
           paddingHorizontal: SIZES.padding,
@@ -229,7 +229,7 @@ const MainLayout = ({drawerAnimationStyle, navigation, selectedTab, setSelectedT
             borderTopRightRadius: 15,
           }}
         /> */}
-        
+
         {/* Tabs */}
         <View
           style={{
