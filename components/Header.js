@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {FONTS} from '../constants';
 
-const Header = ({ containerStyle, title }) => {
+const Header = ({ containerStyle, title, leftComponent, rightComponent }) => {
   return (
     <View
       style={{
@@ -11,6 +11,7 @@ const Header = ({ containerStyle, title }) => {
       }}
     >
       {/* Left */}
+      {leftComponent}
 
       {/* Title */}
       <View
@@ -26,6 +27,7 @@ const Header = ({ containerStyle, title }) => {
       </View>
 
       {/* Right */}
+      {rightComponent}
     </View>
   )
 }
