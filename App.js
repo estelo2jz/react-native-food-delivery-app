@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import CustomDrawer from './navigation/CustomDrawer';
 
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import rootReducer from "./stores/rootReducer";
@@ -12,28 +12,28 @@ import rootReducer from "./stores/rootReducer";
 const Stack = createStackNavigator();
 
 const store = createStore(
-  rootReducer,
-  applyMiddleware(thunk)
+    rootReducer,
+    applyMiddleware(thunk)
 )
 
 const App = () => {
-  return (
-    <Provider store={store} >
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerShown: false
-          }}
-          initialRouteName={'Home'}
-        >
-          <Stack.Screen
-            name="Home"
-            component={CustomDrawer}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </Provider>
-  )
+    return (
+        <Provider store={store}>
+            <NavigationContainer>
+                <Stack.Navigator
+                    screenOptions={{
+                        headerShown: false
+                    }}
+                    initialRouteName={'Home'}
+                >
+                    <Stack.Screen
+                        name="Home"
+                        component={CustomDrawer}
+                    />
+                </Stack.Navigator>
+            </NavigationContainer>
+        </Provider>
+    )
 }
 
 export default App
