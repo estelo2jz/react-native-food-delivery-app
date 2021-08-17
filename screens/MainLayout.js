@@ -18,27 +18,33 @@ import { Header } from '../components';
 import { Home, Search, CartTab, Favourite, Notification } from '../screens';
 import { COLORS, FONTS, SIZES, icons, constants, dummyData } from '../constants';
 
-const TabButton = ({ label, icon, isFocused, onPress }) => {
+const TabButton = ({ label, icon, isFocused, outerContainerStyle, innerContainerStyle ,onPress }) => {
   return (
     <TouchableWithoutFeedback
       onPress={onPress}
     >
       <Animated.View
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Animated.View
-          style={{
-            flexDirection: 'row',
-            width: "80%",
-            height: 50,
+        style={[
+          {
+            flex: 1,
             alignItems: 'center',
             justifyContent: 'center',
-            borderRadius: 25,
-          }}
+          },
+          outerContainerStyle
+        ]}
+      >
+        <Animated.View
+          style={[
+            {
+              flexDirection: 'row',
+              width: "80%",
+              height: 50,
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: 25,
+            },
+            innerContainerStyle
+          ]}
         >
           <Image
             source={icon}
@@ -68,78 +74,82 @@ const TabButton = ({ label, icon, isFocused, onPress }) => {
 
 const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelectedTab }) => {
 
-  // Rreanimated Shared Value
-  const homeTabFlex = useSharedValue(1)
-  const homeTabColor = useSharedValue(COLORS.white)
-  const searchTabFlex = useSharedValue(1)
-  const searchTabColor = useSharedValue(COLORS.white)
-  const cartTabFlex = useSharedValue(1)
-  const cartTabColor = useSharedValue(COLORS.white)
-  const favouriteTabFlex = useSharedValue(1)
-  const favouriteTabColor = useSharedValue(COLORS.white)
-  const notificationTabFlex = useSharedValue(1)
-  const notificationTabColor = useSharedValue(COLORS.white)
+  // Reanimated Shared Value
+  // const homeTabFlex = useSharedValue(1)
+  // const homeTabColor = useSharedValue(COLORS.white)
+  // const searchTabFlex = useSharedValue(1)
+  // const searchTabColor = useSharedValue(COLORS.white)
+  // const cartTabFlex = useSharedValue(1)
+  // const cartTabColor = useSharedValue(COLORS.white)
+  // const favouriteTabFlex = useSharedValue(1)
+  // const favouriteTabColor = useSharedValue(COLORS.white)
+  // const notificationTabFlex = useSharedValue(1)
+  // const notificationTabColor = useSharedValue(COLORS.white)
 
   // Reanimated Animated Style
 
-  const homeFlexStyle = useAnimatedStyle(() => {
-    return {
-      flex: homeTabFlex.value
-    }
-  })
-  const homeColorStyle = useAnimatedStyle(() => {
-    return {
-      backgroundColor: homeTabColor.value
-    }
-  })
+  // const homeFlexStyle = useAnimatedStyle(() => {
+  //   return {
+  //     flex: homeTabFlex.value
+  //   }
+  // })
+  // const homeColorStyle = useAnimatedStyle(() => {
+  //   return {
+  //     backgroundColor: homeTabColor.value
+  //   }
+  // })
 
-  const searchFlexStyle = useAnimatedStyle(() => {
-    return {
-      flex: searchTabFlex.value
-    }
-  })
-  const searchColorStyle = useAnimatedStyle(() => {
-    return {
-      backgroundColor: searchTabColor.value
-    }
-  })
+  // const searchFlexStyle = useAnimatedStyle(() => {
+  //   return {
+  //     flex: searchTabFlex.value
+  //   }
+  // })
+  // const searchColorStyle = useAnimatedStyle(() => {
+  //   return {
+  //     backgroundColor: searchTabColor.value
+  //   }
+  // })
 
-  const cartFlexStyle = useAnimatedStyle(() => {
-    return {
-      flex: cartTabFlex.value
-    }
-  })
-  const cartColorStyle = useAnimatedStyle(() => {
-    return {
-      backgroundColor: cartTabColor.value
-    }
-  })
+  // const cartFlexStyle = useAnimatedStyle(() => {
+  //   return {
+  //     flex: cartTabFlex.value
+  //   }
+  // })
+  // const cartColorStyle = useAnimatedStyle(() => {
+  //   return {
+  //     backgroundColor: cartTabColor.value
+  //   }
+  // })
 
-  const favouriteFlexStyle = useAnimatedStyle(() => {
-    return {
-      flex: favouriteTabFlex.value
-    }
-  })
-  const favouriteColorStyle = useAnimatedStyle(() => {
-    return {
-      backgroundColor: favouriteTabColor.value
-    }
-  })
+  // const favouriteFlexStyle = useAnimatedStyle(() => {
+  //   return {
+  //     flex: favouriteTabFlex.value
+  //   }
+  // })
+  // const favouriteColorStyle = useAnimatedStyle(() => {
+  //   return {
+  //     backgroundColor: favouriteTabColor.value
+  //   }
+  // })
 
-  const notificationFlexStyle = useAnimatedStyle(() => {
-    return {
-      flex: notificationTabFlex.value
-    }
-  })
-  const notificationColorStyle = useAnimatedStyle(() => {
-    return {
-      backgroundColor: notificationTabColor.value
-    }
-  })
+  // const notificationFlexStyle = useAnimatedStyle(() => {
+  //   return {
+  //     flex: notificationTabFlex.value
+  //   }
+  // })
+  // const notificationColorStyle = useAnimatedStyle(() => {
+  //   return {
+  //     backgroundColor: notificationTabColor.value
+  //   }
+  // })
 
   React.useEffect(() => {
     setSelectedTab(constants.screens.home)
   }, [])
+
+  React.useEffect(() => {
+
+  }, [selectedTab])
 
   return (
     <Animated.View
@@ -246,40 +256,40 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
             label={constants.screens.home}
             icon={icons.home}
             isFocused={selectedTab == constants.screens.home}
-            outerContainerStyle={homeFlexStyle}
-            innerContainerStyle={homeColorStyle}
+            // outerContainerStyle={homeFlexStyle}
+            // innerContainerStyle={homeColorStyle}
             onPress={() => setSelectedTab(constants.screens.home)}
           />
           <TabButton
             label={constants.screens.search}
             icon={icons.search}
             isFocused={selectedTab == constants.screens.search}
-            outerContainerStyle={searchFlexStyle}
-            innerContainerStyle={searchColorStyle}
+            // outerContainerStyle={searchFlexStyle}
+            // innerContainerStyle={searchColorStyle}
             onPress={() => setSelectedTab(constants.screens.search)}
           />
           <TabButton
             label={constants.screens.cart}
             icon={icons.cart}
             isFocused={selectedTab == constants.screens.cart}
-            outerContainerStyle={cartFlexStyle}
-            innerContainerStyle={cartColorStyle}
+            // outerContainerStyle={cartFlexStyle}
+            // innerContainerStyle={cartColorStyle}
             onPress={() => setSelectedTab(constants.screens.cart)}
           />
           <TabButton
             label={constants.screens.favourite}
             icon={icons.favourite}
             isFocused={selectedTab == constants.screens.favourite}
-            outerContainerStyle={favouriteFlexStyle}
-            innerContainerStyle={favouriteColorStyle}
+            // outerContainerStyle={favouriteFlexStyle}
+            // innerContainerStyle={favouriteColorStyle}
             onPress={() => setSelectedTab(constants.screens.favourite)}
           />
           <TabButton
             label={constants.screens.notification}
             icon={icons.notification}
             isFocused={selectedTab == constants.screens.notification}
-            outerContainerStyle={notificationFlexStyle}
-            innerContainerStyle={notificationColorStyle}
+            // outerContainerStyle={notificationFlexStyle}
+            // innerContainerStyle={notificationColorStyle}
             onPress={() => setSelectedTab(constants.screens.notification)}
           />
         </View>
