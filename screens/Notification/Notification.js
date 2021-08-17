@@ -1,13 +1,21 @@
 import React from 'react';
 import {
-  View,
+    View,
+    Text
 } from 'react-native';
 
 const Notification = () => {
-  return (
-    <View>
-    </View>
-  )
+    return (
+        <View
+            style={{
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}
+        >
+            <Text>Notification</Text>
+        </View>
+    )
 }
 
 export default Notification;
